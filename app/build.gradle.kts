@@ -70,7 +70,7 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.retrofit)
-    implementation(libs.converter.gson)
+    implementation(libs.converter.moshi)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
