@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.kotlin.kapt)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -11,7 +12,7 @@ android {
 
     defaultConfig {
         applicationId = "com.app.myapplication"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -64,6 +65,11 @@ dependencies {
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    implementation(libs.navigation.compose)
+    implementation(libs.kotlinx.serialization.json)
+    implementation(libs.hilt.navigation.compose)
+
 
     implementation(platform(libs.okhttp.bom))
     implementation(libs.okhttp)

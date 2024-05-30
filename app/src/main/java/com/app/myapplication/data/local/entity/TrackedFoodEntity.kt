@@ -7,5 +7,9 @@ import androidx.room.PrimaryKey
 data class TrackedFoodEntity(
     val name: String,
     val imageUrl: String? = null,
+    val type: String,
+    val dayOfMonth: Int,
+    val month: Int,
+    val year: Int,
     @PrimaryKey val id: Int? = null
 )
