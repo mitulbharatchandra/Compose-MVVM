@@ -6,7 +6,7 @@ coreKtx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
-lifecycleRuntimeKtx = "2.8.0"
+lifecycleRuntimeKtx = "2.8.1"
 activityCompose = "1.9.0"
 composeBom = "2024.05.00"
 retrofit = "2.11.0"
@@ -14,7 +14,9 @@ okhttpbom = "4.12.0"
 room = "2.6.1"
 composenavigation = "2.8.0-beta02"
 serialization = "1.6.3"
-hiltnavigation = "1.0.0-beta01"
+hiltnavigation = "1.2.0"
+coil = "2.6.0"
+moshikotlin = "1.14.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -35,6 +37,7 @@ hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref
 hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hiltAndroid" }
 retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
 converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+moshi-kotlin = { group = "com.squareup.moshi", name = "moshi-kotlin", version.ref = "moshikotlin"}
 okhttp-bom = { group = "com.squareup.okhttp3", name="okhttp-bom", version.ref = "okhttpbom" }
 okhttp = { group = "com.squareup.okhttp3", name = "okhttp" }
 logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor" }
@@ -44,6 +47,7 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "composenavigation" }
 kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "serialization" }
 hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltnavigation" }
+coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
 
 
 [plugins]

@@ -4,6 +4,7 @@ import com.app.myapplication.data.local.TrackerDao
 import com.app.myapplication.data.mapper.toTrackableFood
 import com.app.myapplication.data.mapper.toTrackedFood
 import com.app.myapplication.data.mapper.toTrackedFoodEntity
+import com.app.myapplication.data.networking.safeApiCall
 import com.app.myapplication.data.remote.OpenFoodApi
 import com.app.myapplication.domain.model.TrackableFood
 import com.app.myapplication.domain.model.TrackedFood
@@ -21,22 +22,34 @@ class TrackerRepositoryImpl(
         page: Int,
         pageSize: Int
     ): Result<List<TrackableFood>> {
-        return try {
-            val searchDto = api.searchFood(
+        /*val result = safeApiCall {
+            api.searchFood(
                 query = query,
                 page = page,
                 pageSize = pageSize
             )
+        }*/
+        return try {
+            val searchDto = api.searchFood(
+                    query = query,
+                    page = page,
+                    pageSize = pageSize
+                )
+
             Result.success(
                 searchDto.products
                     .filter {
+                        val carbohydrates100g = it.nutriments.carbohydrates100g ?: 0.0
+                        val proteins100g = it.nutriments.proteins100g ?: 0.0
+                        val fat100g = it.nutriments.fat100g ?: 0.0
+                        val energyKcal100g = it.nutriments.energyKcal100g ?: 0.0
                         val calculatedCalories =
-                            it.nutriments.carbohydrates100g * 4f +
-                                    it.nutriments.proteins100g * 4f +
-                                    it.nutriments.fat100g * 9f
+                            carbohydrates100g * 4f +
+                                    proteins100g * 4f +
+                                    fat100g * 9f
                         val lowerBound = calculatedCalories * 0.99f
                         val upperBound = calculatedCalories * 1.01f
-                        it.nutriments.energyKcal100g in (lowerBound..upperBound)
+                        energyKcal100g in (lowerBound..upperBound)
                     }
                     .mapNotNull { it.toTrackableFood() }
             )

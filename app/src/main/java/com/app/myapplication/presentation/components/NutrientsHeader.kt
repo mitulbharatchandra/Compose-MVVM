@@ -89,7 +89,7 @@ fun NutrientsHeader(
                 .fillMaxWidth()
                 .height(30.dp)
         )
-        Spacer(modifier = androidx.compose.ui.Modifier.height(spacing.spaceLarge))
+        Spacer(modifier = Modifier.height(spacing.spaceLarge))
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceBetween

@@ -1,6 +1,7 @@
 package com.app.myapplication.data.remote
 
 import com.app.myapplication.data.remote.dto.SearchDto
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 

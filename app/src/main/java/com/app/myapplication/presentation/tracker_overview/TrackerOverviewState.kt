@@ -4,14 +4,14 @@ import com.app.myapplication.domain.model.TrackedFood
 import java.time.LocalDate
 
 data class TrackerOverviewState(
-    val totalCarbs: Int = 50,
-    val totalProtein: Int = 80,
-    val totalFat: Int = 20,
-    val totalCalories: Int = 20,
-    val carbsGoal: Int = 150,
-    val proteinGoal: Int = 200,
-    val fatGoal: Int = 100,
-    val caloriesGoal: Int = 130,
+    val totalCarbs: Int = 0,
+    val totalProtein: Int = 0,
+    val totalFat: Int = 0,
+    val totalCalories: Int = 0,
+    val carbsGoal: Int = 0,
+    val proteinGoal: Int = 0,
+    val fatGoal: Int = 0,
+    val caloriesGoal: Int = 0,
     val date: LocalDate = LocalDate.now(),
     val trackedFoods: List<TrackedFood> = emptyList(),
     val meals: List<Meal> = defaultMeals

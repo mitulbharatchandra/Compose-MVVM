@@ -1,16 +1,23 @@
 package com.app.myapplication.domain.preferences
 
+import com.app.myapplication.domain.model.ActivityLevel
+import com.app.myapplication.domain.model.Gender
+import com.app.myapplication.domain.model.GoalType
 import com.app.myapplication.domain.model.UserInfo
 
 interface Preferences {
+    fun saveGender(gender: Gender)
     fun saveAge(age: Int)
     fun saveWeight(weight: Float)
     fun saveHeight(height: Int)
+    fun saveActivityLevel(level: ActivityLevel)
+    fun saveGoalType(type: GoalType)
     fun saveCarbRatio(ratio: Float)
     fun saveProteinRatio(ratio: Float)
     fun saveFatRatio(ratio: Float)
 
     fun loadUserInfo(): UserInfo
+
     fun saveShouldShowOnboarding(shouldShow: Boolean)
     fun loadShouldShowOnboarding(): Boolean
 

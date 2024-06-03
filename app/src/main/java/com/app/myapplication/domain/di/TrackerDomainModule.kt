@@ -4,6 +4,7 @@ import android.app.Application
 import com.app.myapplication.data.preferences.DefaultPreferences
 import com.app.myapplication.domain.preferences.Preferences
 import com.app.myapplication.domain.repository.TrackerRepository
+import com.app.myapplication.domain.use_case.CalculateMealNutrients
 import com.app.myapplication.domain.use_case.DeleteTrackedFood
 import com.app.myapplication.domain.use_case.GetFoodsForDate
 import com.app.myapplication.domain.use_case.SearchFood
@@ -22,13 +23,15 @@ object TrackerDomainModule {
     @ViewModelScoped
     @Provides
     fun provideTrackerUseCases(
-        repository: TrackerRepository
+        repository: TrackerRepository,
+        preferences: Preferences
     ): TrackerUseCases {
         return TrackerUseCases(
             trackFood = TrackFood(repository),
             searchFood = SearchFood(repository),
             getFoodsForDate = GetFoodsForDate(repository),
-            deleteTrackedFood = DeleteTrackedFood(repository)
+            deleteTrackedFood = DeleteTrackedFood(repository),
+            calculateMealNutrients = CalculateMealNutrients(preferences)
         )
     }
 
